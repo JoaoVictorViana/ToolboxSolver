@@ -20,7 +20,7 @@ def createProblem(name,is_max):
 	lines()
 	return LpProblem(name,(LpMaximize if is_max else LpMinimize))
 	
-def creatVariables():
+def createVariables():
 	lines()
 	num_variables = int(input ("Quantas variáveis irá precisar para este problema? "))
 	vetor = []
@@ -34,7 +34,7 @@ def creatVariables():
 
 	return vetor
 	
-def creatFuncObj(variables,problem):
+def createFuncObj(variables,problem):
 	lines()
 	print ("Crie agora a função objetivo.")
 	func = 0
@@ -43,7 +43,7 @@ def creatFuncObj(variables,problem):
 		func += value*variables[count]
 	problem += func,"Total de custos"
 	
-def creatRestriction(variables,problem,number):
+def createRestriction(variables,problem,number):
 	lines()
 	print("Crie a",number,"° restrição.")
 	name_restriction = input("Qual o nome desta restrição? ")
@@ -98,14 +98,14 @@ def start():
 		
 		problem = createProblem(name,is_max)
 		
-		variables  = creatVariables()
+		variables  = createVariables()
 		
-		creatFuncObj(variables,problem)
+		createFuncObj(variables,problem)
 		
 		lines()
 		num_restricion = int(input("Quantas restrições você colocará no seu problema? "))
 		for count in range(num_restricion):
-			creatRestriction(variables,problem,count+1)
+			createRestriction(variables,problem,count+1)
 				
 		writeProblem(problem,name)
 		
